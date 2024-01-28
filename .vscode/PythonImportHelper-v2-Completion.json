@@ -789,7 +789,7 @@
         "kind": 5,
         "importPath": "KPulse.settings",
         "description": "KPulse.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = env(\"SECRET_KEY\")\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"*\"]\n# CSRF_TRUSTED_ORIGINS = ['https://davidstone-health-care.onrender.com','https://*.127.0.0.1']\n# added",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = env(\"SECRET_KEY\")\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"*\"]\nCSRF_TRUSTED_ORIGINS = ['https://davidstone-health-care.onrender.com','https://*.127.0.0.1']\n# added",
         "detail": "KPulse.settings",
         "documentation": {}
     },
@@ -798,7 +798,7 @@
         "kind": 5,
         "importPath": "KPulse.settings",
         "description": "KPulse.settings",
-        "peekOfCode": "SECRET_KEY = env(\"SECRET_KEY\")\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"*\"]\n# CSRF_TRUSTED_ORIGINS = ['https://davidstone-health-care.onrender.com','https://*.127.0.0.1']\n# added\nCORS_ALLOW_ALL_ORIGINS = True\nCORS_ALLOW_METHODS = [\n    'DELETE',\n    'GET',",
+        "peekOfCode": "SECRET_KEY = env(\"SECRET_KEY\")\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"*\"]\nCSRF_TRUSTED_ORIGINS = ['https://davidstone-health-care.onrender.com','https://*.127.0.0.1']\n# added\nCORS_ALLOW_ALL_ORIGINS = True\nCORS_ALLOW_METHODS = [\n    'DELETE',\n    'GET',",
         "detail": "KPulse.settings",
         "documentation": {}
     },
@@ -807,7 +807,7 @@
         "kind": 5,
         "importPath": "KPulse.settings",
         "description": "KPulse.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = [\"*\"]\n# CSRF_TRUSTED_ORIGINS = ['https://davidstone-health-care.onrender.com','https://*.127.0.0.1']\n# added\nCORS_ALLOW_ALL_ORIGINS = True\nCORS_ALLOW_METHODS = [\n    'DELETE',\n    'GET',\n    'OPTIONS',\n    'PATCH',",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = [\"*\"]\nCSRF_TRUSTED_ORIGINS = ['https://davidstone-health-care.onrender.com','https://*.127.0.0.1']\n# added\nCORS_ALLOW_ALL_ORIGINS = True\nCORS_ALLOW_METHODS = [\n    'DELETE',\n    'GET',\n    'OPTIONS',\n    'PATCH',",
         "detail": "KPulse.settings",
         "documentation": {}
     },
@@ -816,7 +816,16 @@
         "kind": 5,
         "importPath": "KPulse.settings",
         "description": "KPulse.settings",
-        "peekOfCode": "ALLOWED_HOSTS = [\"*\"]\n# CSRF_TRUSTED_ORIGINS = ['https://davidstone-health-care.onrender.com','https://*.127.0.0.1']\n# added\nCORS_ALLOW_ALL_ORIGINS = True\nCORS_ALLOW_METHODS = [\n    'DELETE',\n    'GET',\n    'OPTIONS',\n    'PATCH',\n    'POST',",
+        "peekOfCode": "ALLOWED_HOSTS = [\"*\"]\nCSRF_TRUSTED_ORIGINS = ['https://davidstone-health-care.onrender.com','https://*.127.0.0.1']\n# added\nCORS_ALLOW_ALL_ORIGINS = True\nCORS_ALLOW_METHODS = [\n    'DELETE',\n    'GET',\n    'OPTIONS',\n    'PATCH',\n    'POST',",
+        "detail": "KPulse.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CSRF_TRUSTED_ORIGINS",
+        "kind": 5,
+        "importPath": "KPulse.settings",
+        "description": "KPulse.settings",
+        "peekOfCode": "CSRF_TRUSTED_ORIGINS = ['https://davidstone-health-care.onrender.com','https://*.127.0.0.1']\n# added\nCORS_ALLOW_ALL_ORIGINS = True\nCORS_ALLOW_METHODS = [\n    'DELETE',\n    'GET',\n    'OPTIONS',\n    'PATCH',\n    'POST',\n    'PUT',",
         "detail": "KPulse.settings",
         "documentation": {}
     },
