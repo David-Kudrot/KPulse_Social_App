@@ -13,7 +13,7 @@ router.register('list', AllPostAPIViewsets)
 urlpatterns = [
     # Posts
     path('', include(router.urls)),
-    path('', PostListCreateAPIView.as_view(), name='post-list-create'),
+    path('lists/', PostListCreateAPIView.as_view(), name='post-list-create'),
     path('<int:pk>/', PostDetailAPIView.as_view(), name='post-detail'),
 
     # Comments

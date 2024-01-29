@@ -1137,7 +1137,7 @@
         "kind": 5,
         "importPath": "post.urls",
         "description": "post.urls",
-        "peekOfCode": "router = DefaultRouter()\nrouter.register('list', AllPostAPIViewsets)\nurlpatterns = [\n    # Posts\n    path('', include(router.urls)),\n    path('', PostListCreateAPIView.as_view(), name='post-list-create'),\n    path('<int:pk>/', PostDetailAPIView.as_view(), name='post-detail'),\n    # Comments\n    path('comments/', CommentListCreateAPIView.as_view(), name='comment-list-create'),\n    # Likes",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register('list', AllPostAPIViewsets)\nurlpatterns = [\n    # Posts\n    path('', include(router.urls)),\n    path('lists/', PostListCreateAPIView.as_view(), name='post-list-create'),\n    path('<int:pk>/', PostDetailAPIView.as_view(), name='post-detail'),\n    # Comments\n    path('comments/', CommentListCreateAPIView.as_view(), name='comment-list-create'),\n    # Likes",
         "detail": "post.urls",
         "documentation": {}
     },
@@ -1146,7 +1146,7 @@
         "kind": 5,
         "importPath": "post.urls",
         "description": "post.urls",
-        "peekOfCode": "urlpatterns = [\n    # Posts\n    path('', include(router.urls)),\n    path('', PostListCreateAPIView.as_view(), name='post-list-create'),\n    path('<int:pk>/', PostDetailAPIView.as_view(), name='post-detail'),\n    # Comments\n    path('comments/', CommentListCreateAPIView.as_view(), name='comment-list-create'),\n    # Likes\n    path('likes/', LikeListCreateAPIView.as_view(), name='like-list-create'),\n    # Shares",
+        "peekOfCode": "urlpatterns = [\n    # Posts\n    path('', include(router.urls)),\n    path('lists/', PostListCreateAPIView.as_view(), name='post-list-create'),\n    path('<int:pk>/', PostDetailAPIView.as_view(), name='post-detail'),\n    # Comments\n    path('comments/', CommentListCreateAPIView.as_view(), name='comment-list-create'),\n    # Likes\n    path('likes/', LikeListCreateAPIView.as_view(), name='like-list-create'),\n    # Shares",
         "detail": "post.urls",
         "documentation": {}
     },
