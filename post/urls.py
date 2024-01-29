@@ -1,20 +1,20 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import (
-    PostListCreateAPIView, PostDetailAPIView, CommentListCreateAPIView, LikeListCreateAPIView, ShareListCreateAPIView
+    PostListCreateAPIView, PostDetailAPIView, CommentListCreateAPIView, LikeListCreateAPIView, ShareListCreateAPIView, AllPostAPIViewsets
 )
 
 
-# router = DefaultRouter()
-# router.register('list', PostListCreateAPIView)
+router = DefaultRouter()
+router.register('list', AllPostAPIViewsets)
 
 
 
 urlpatterns = [
     # Posts
-    # path('', include(router.urls)),
-    path('list/', PostListCreateAPIView.as_view(), name='post-list-create'),
-    path('list/<int:pk>/', PostDetailAPIView.as_view(), name='post-detail'),
+    path('', include(router.urls)),
+    path('', PostListCreateAPIView.as_view(), name='post-list-create'),
+    path('<int:pk>/', PostDetailAPIView.as_view(), name='post-detail'),
 
     # Comments
     path('comments/', CommentListCreateAPIView.as_view(), name='comment-list-create'),

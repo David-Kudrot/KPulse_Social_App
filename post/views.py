@@ -1,8 +1,13 @@
-from rest_framework import generics, permissions
+from rest_framework import generics, viewsets, permissions
 from .models import Post, Comment, Share, Like
 from .serializers import PostSerializer, CommentSerializer, LikeSerializer, ShareSerializer
 
 from django.shortcuts import get_object_or_404
+
+
+class AllPostAPIViewsets(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
 
 
 class PostListCreateAPIView(generics.ListCreateAPIView):
