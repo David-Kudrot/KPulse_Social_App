@@ -361,6 +361,30 @@
         "documentation": {}
     },
     {
+        "label": "DefaultRouter",
+        "importPath": "rest_framework.routers",
+        "description": "rest_framework.routers",
+        "isExtraImport": true,
+        "detail": "rest_framework.routers",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
         "label": "path",
         "importPath": "django.urls",
         "description": "django.urls",
@@ -386,14 +410,6 @@
     },
     {
         "label": "include",
-        "importPath": "django.urls",
-        "description": "django.urls",
-        "isExtraImport": true,
-        "detail": "django.urls",
-        "documentation": {}
-    },
-    {
-        "label": "path",
         "importPath": "django.urls",
         "description": "django.urls",
         "isExtraImport": true,
@@ -1109,11 +1125,20 @@
         "documentation": {}
     },
     {
+        "label": "router",
+        "kind": 5,
+        "importPath": "post.urls",
+        "description": "post.urls",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register('list', PostListCreateAPIView)\nurlpatterns = [\n    # Posts\n    path('', include(router.urls)),\n    # path('list/', PostListCreateAPIView.as_view(), name='post-list-create'),\n    path('list/<int:pk>/', PostDetailAPIView.as_view(), name='post-detail'),\n    # Comments\n    path('comments/', CommentListCreateAPIView.as_view(), name='comment-list-create'),\n    # Likes",
+        "detail": "post.urls",
+        "documentation": {}
+    },
+    {
         "label": "urlpatterns",
         "kind": 5,
         "importPath": "post.urls",
         "description": "post.urls",
-        "peekOfCode": "urlpatterns = [\n    # Posts\n    path('list/', PostListCreateAPIView.as_view(), name='post-list-create'),\n    path('list/<int:pk>/', PostDetailAPIView.as_view(), name='post-detail'),\n    # Comments\n    path('comments/', CommentListCreateAPIView.as_view(), name='comment-list-create'),\n    # Likes\n    path('likes/', LikeListCreateAPIView.as_view(), name='like-list-create'),\n    # Shares\n    path('shares/', ShareListCreateAPIView.as_view(), name='share-list-create'),",
+        "peekOfCode": "urlpatterns = [\n    # Posts\n    path('', include(router.urls)),\n    # path('list/', PostListCreateAPIView.as_view(), name='post-list-create'),\n    path('list/<int:pk>/', PostDetailAPIView.as_view(), name='post-detail'),\n    # Comments\n    path('comments/', CommentListCreateAPIView.as_view(), name='comment-list-create'),\n    # Likes\n    path('likes/', LikeListCreateAPIView.as_view(), name='like-list-create'),\n    # Shares",
         "detail": "post.urls",
         "documentation": {}
     },
