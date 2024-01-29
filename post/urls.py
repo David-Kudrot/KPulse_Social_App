@@ -5,15 +5,15 @@ from .views import (
 )
 
 
-router = DefaultRouter()
-router.register('list', PostListCreateAPIView)
+# router = DefaultRouter()
+# router.register('list', PostListCreateAPIView)
 
 
 
 urlpatterns = [
     # Posts
-    path('', include(router.urls)),
-    # path('list/', PostListCreateAPIView.as_view(), name='post-list-create'),
+    # path('', include(router.urls)),
+    path('list/', PostListCreateAPIView.as_view(), name='post-list-create'),
     path('list/<int:pk>/', PostDetailAPIView.as_view(), name='post-detail'),
 
     # Comments
