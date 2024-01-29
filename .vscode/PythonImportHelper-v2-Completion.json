@@ -112,6 +112,22 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -1043,6 +1059,15 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "post.migrations.0004_alter_post_description",
+        "description": "post.migrations.0004_alter_post_description",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('post', '0003_alter_post_image_alter_post_video'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='post',\n            name='description',\n            field=models.TextField(blank=True, null=True),\n        ),",
+        "detail": "post.migrations.0004_alter_post_description",
+        "documentation": {}
+    },
+    {
         "label": "PostConfig",
         "kind": 6,
         "importPath": "post.apps",
@@ -1056,7 +1081,7 @@
         "kind": 6,
         "importPath": "post.models",
         "description": "post.models",
-        "peekOfCode": "class Post(models.Model):\n    user = models.ForeignKey(User, on_delete=models.CASCADE)\n    image = models.ImageField(upload_to='post/images/', null=True, blank=True)\n    video = models.FileField(upload_to='post/videos/', null=True, blank=True)\n    description = models.TextField()\n    created_at = models.DateTimeField(auto_now_add=True)\n    shared_post = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE)\n    def __str__(self):\n        return f\"Post by {self.user.username}\"\nclass Comment(models.Model):",
+        "peekOfCode": "class Post(models.Model):\n    user = models.ForeignKey(User, on_delete=models.CASCADE)\n    image = models.ImageField(upload_to='post/images/', null=True, blank=True)\n    video = models.FileField(upload_to='post/videos/', null=True, blank=True)\n    description = models.TextField(null=True, blank=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    shared_post = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE)\n    def __str__(self):\n        return f\"Post by {self.user.username}\"\nclass Comment(models.Model):",
         "detail": "post.models",
         "documentation": {}
     },

@@ -5,7 +5,7 @@ class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='post/images/', null=True, blank=True)
     video = models.FileField(upload_to='post/videos/', null=True, blank=True)
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     shared_post = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE)
 
