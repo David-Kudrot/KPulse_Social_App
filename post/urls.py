@@ -5,8 +5,8 @@ from .views import (
 
 urlpatterns = [
     # Posts
-    path('', PostListCreateAPIView.as_view(), name='post-list-create'),
-    path('<int:pk>/', PostDetailAPIView.as_view(), name='post-detail'),
+    path('list/', PostListCreateAPIView.as_view(), name='post-list-create'),
+    path('list/<int:pk>/', PostDetailAPIView.as_view(), name='post-detail'),
 
     # Comments
     path('comments/', CommentListCreateAPIView.as_view(), name='comment-list-create'),
