@@ -33,7 +33,7 @@ DEBUG = True
 
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ['https://davidstone-health-care.onrender.com','https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://kpulse-social.onrender.com','https://*.127.0.0.1']
 
 # added
 CORS_ALLOW_ALL_ORIGINS = True
