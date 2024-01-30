@@ -953,7 +953,16 @@
         "kind": 5,
         "importPath": "KPulse.settings",
         "description": "KPulse.settings",
-        "peekOfCode": "WSGI_APPLICATION = 'KPulse.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/4.2/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation",
+        "peekOfCode": "WSGI_APPLICATION = 'KPulse.wsgi.application'\nREST_FRAMEWORK = {\n    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],\n    # 'DEFAULT_PERMISSION_CLASSES': [\n    #     'rest_framework.permissions.IsAuthenticatedOrReadOnly',\n    # ],\n}\n# Database\n# https://docs.djangoproject.com/en/4.2/ref/settings/#databases",
+        "detail": "KPulse.settings",
+        "documentation": {}
+    },
+    {
+        "label": "REST_FRAMEWORK",
+        "kind": 5,
+        "importPath": "KPulse.settings",
+        "description": "KPulse.settings",
+        "peekOfCode": "REST_FRAMEWORK = {\n    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],\n    # 'DEFAULT_PERMISSION_CLASSES': [\n    #     'rest_framework.permissions.IsAuthenticatedOrReadOnly',\n    # ],\n}\n# Database\n# https://docs.djangoproject.com/en/4.2/ref/settings/#databases\nDATABASES = {\n    'default': {",
         "detail": "KPulse.settings",
         "documentation": {}
     },
