@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = ['id', 'name', 'profile_image', 'phone_number', 'bio']
+        fields = ['id', 'name', 'profile_image', 'cover_image', 'phone_number', 'bio']
 
 class RegistrationSerializer(serializers.ModelSerializer):
     confirm_password = serializers.CharField(required = True)

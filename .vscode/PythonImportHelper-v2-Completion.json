@@ -728,7 +728,7 @@
         "kind": 6,
         "importPath": "account.serializers",
         "description": "account.serializers",
-        "peekOfCode": "class ProfileSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Profile\n        fields = ['id', 'name', 'profile_image', 'phone_number', 'bio']\nclass RegistrationSerializer(serializers.ModelSerializer):\n    confirm_password = serializers.CharField(required = True)\n    class Meta:\n        model = User\n        fields = ['username', 'first_name', 'last_name', 'email', 'password', 'confirm_password']\n    def save(self):",
+        "peekOfCode": "class ProfileSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Profile\n        fields = ['id', 'name', 'profile_image', 'cover_image', 'phone_number', 'bio']\nclass RegistrationSerializer(serializers.ModelSerializer):\n    confirm_password = serializers.CharField(required = True)\n    class Meta:\n        model = User\n        fields = ['username', 'first_name', 'last_name', 'email', 'password', 'confirm_password']\n    def save(self):",
         "detail": "account.serializers",
         "documentation": {}
     },
