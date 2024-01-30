@@ -48,6 +48,22 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -672,6 +688,15 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "account.migrations.0004_profile_cover_image",
+        "description": "account.migrations.0004_profile_cover_image",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('account', '0003_remove_profile_profileimage_profile_profile_image_and_more'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='profile',\n            name='cover_image',\n            field=models.ImageField(blank=True, default='https://www.nicepng.com/png/full/959-9595523_blank-facebook-cover-ivory.png', null=True, upload_to='account/images/'),\n        ),",
+        "detail": "account.migrations.0004_profile_cover_image",
+        "documentation": {}
+    },
+    {
         "label": "ProfileAdmin",
         "kind": 6,
         "importPath": "account.admin",
@@ -694,7 +719,7 @@
         "kind": 6,
         "importPath": "account.models",
         "description": "account.models",
-        "peekOfCode": "class Profile(models.Model):\n    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)\n    name = models.CharField(max_length=50)\n    profile_image = models.ImageField(upload_to='account/images/', default=\"https://t4.ftcdn.net/jpg/05/89/93/27/360_F_589932782_vQAEAZhHnq1QCGu5ikwrYaQD0Mmurm0N.jpg\", null=True, blank=True)\n    phone_number = models.CharField(max_length=15)\n    bio = models.TextField()\n    friends = models.IntegerField(default=0)\n    def __str__(self):\n        return f\"{self.name}\"",
+        "peekOfCode": "class Profile(models.Model):\n    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)\n    name = models.CharField(max_length=50)\n    profile_image = models.ImageField(upload_to='account/images/', default=\"https://t4.ftcdn.net/jpg/05/89/93/27/360_F_589932782_vQAEAZhHnq1QCGu5ikwrYaQD0Mmurm0N.jpg\", null=True, blank=True)\n    cover_image = models.ImageField(upload_to=\"account/images/\", null=True, blank=True, default=\"https://www.nicepng.com/png/full/959-9595523_blank-facebook-cover-ivory.png\")\n    phone_number = models.CharField(max_length=15)\n    bio = models.TextField()\n    friends = models.IntegerField(default=0)\n    def __str__(self):\n        return f\"{self.name}\"",
         "detail": "account.models",
         "documentation": {}
     },
