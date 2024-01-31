@@ -16,15 +16,11 @@ class AllPostAPIViewsets(viewsets.ModelViewSet):
 
 #post create korar jonno view
 # views.py
-from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
-from .models import Post
-from .serializers import PostSerializer
 
 @api_view(['GET', 'POST'])
-# @permission_classes([IsAuthenticated]) # eta authentication er jonnno
+@permission_classes([IsAuthenticated]) # eta authentication er jonnno
 def post_list_create_api_view(request):
     if request.method == 'GET':
         user = request.user
