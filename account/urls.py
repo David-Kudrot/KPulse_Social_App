@@ -8,6 +8,7 @@ urlpatterns = [
     path('profile/<int:pk>/', views.ProfileDetailAPIView.as_view(), name='profile-detail'),
     path('register/', views.UserRegistrationApiView.as_view(), name='register'),
     path('login/', views.UserLoginApiView.as_view(), name='login'),
-    path('logout/', views.UserLogoutView.as_view(), name='logout'),
+    # path('logout/', views.UserLogoutView.as_view(), name='logout'),
+    path('logout/', views.user_logout_view, name='logout'),
     path('active/<uid64>/<token>/', views.activate, name = 'activate'),
 ]

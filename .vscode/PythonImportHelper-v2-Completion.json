@@ -505,6 +505,14 @@
         "documentation": {}
     },
     {
+        "label": "api_view",
+        "importPath": "rest_framework.decorators",
+        "description": "rest_framework.decorators",
+        "isExtraImport": true,
+        "detail": "rest_framework.decorators",
+        "documentation": {}
+    },
+    {
         "label": "Response",
         "importPath": "rest_framework.response",
         "description": "rest_framework.response",
@@ -755,7 +763,7 @@
         "kind": 5,
         "importPath": "account.urls",
         "description": "account.urls",
-        "peekOfCode": "router = DefaultRouter() # amader router\nurlpatterns = [\n    path('profile/', views.ProfileViewsets.as_view(), name='profile'),\n    path('profile/<int:pk>/', views.ProfileDetailAPIView.as_view(), name='profile-detail'),\n    path('register/', views.UserRegistrationApiView.as_view(), name='register'),\n    path('login/', views.UserLoginApiView.as_view(), name='login'),\n    path('logout/', views.UserLogoutView.as_view(), name='logout'),\n    path('active/<uid64>/<token>/', views.activate, name = 'activate'),\n]",
+        "peekOfCode": "router = DefaultRouter() # amader router\nurlpatterns = [\n    path('profile/', views.ProfileViewsets.as_view(), name='profile'),\n    path('profile/<int:pk>/', views.ProfileDetailAPIView.as_view(), name='profile-detail'),\n    path('register/', views.UserRegistrationApiView.as_view(), name='register'),\n    path('login/', views.UserLoginApiView.as_view(), name='login'),\n    # path('logout/', views.UserLogoutView.as_view(), name='logout'),\n    path('logout/', views.user_logout_view, name='logout'),\n    path('active/<uid64>/<token>/', views.activate, name = 'activate'),\n]",
         "detail": "account.urls",
         "documentation": {}
     },
@@ -764,7 +772,7 @@
         "kind": 5,
         "importPath": "account.urls",
         "description": "account.urls",
-        "peekOfCode": "urlpatterns = [\n    path('profile/', views.ProfileViewsets.as_view(), name='profile'),\n    path('profile/<int:pk>/', views.ProfileDetailAPIView.as_view(), name='profile-detail'),\n    path('register/', views.UserRegistrationApiView.as_view(), name='register'),\n    path('login/', views.UserLoginApiView.as_view(), name='login'),\n    path('logout/', views.UserLogoutView.as_view(), name='logout'),\n    path('active/<uid64>/<token>/', views.activate, name = 'activate'),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('profile/', views.ProfileViewsets.as_view(), name='profile'),\n    path('profile/<int:pk>/', views.ProfileDetailAPIView.as_view(), name='profile-detail'),\n    path('register/', views.UserRegistrationApiView.as_view(), name='register'),\n    path('login/', views.UserLoginApiView.as_view(), name='login'),\n    # path('logout/', views.UserLogoutView.as_view(), name='logout'),\n    path('logout/', views.user_logout_view, name='logout'),\n    path('active/<uid64>/<token>/', views.activate, name = 'activate'),\n]",
         "detail": "account.urls",
         "documentation": {}
     },
@@ -805,20 +813,20 @@
         "documentation": {}
     },
     {
-        "label": "UserLogoutView",
-        "kind": 6,
-        "importPath": "account.views",
-        "description": "account.views",
-        "peekOfCode": "class UserLogoutView(APIView):\n    def get(self, request):\n        request.user.auth_token.delete()\n        logout(request)\n        return redirect('login')",
-        "detail": "account.views",
-        "documentation": {}
-    },
-    {
         "label": "activate",
         "kind": 2,
         "importPath": "account.views",
         "description": "account.views",
         "peekOfCode": "def activate(request, uid64, token):\n    try:\n        uid = urlsafe_base64_decode(uid64).decode()\n        user = User._default_manager.get(pk=uid)\n    except(User.DoesNotExist):\n        user = None \n    if user is not None and default_token_generator.check_token(user, token):\n        user.is_active = True\n        user.save()\n        return redirect('login')",
+        "detail": "account.views",
+        "documentation": {}
+    },
+    {
+        "label": "user_logout_view",
+        "kind": 2,
+        "importPath": "account.views",
+        "description": "account.views",
+        "peekOfCode": "def user_logout_view(request):\n    if request.user.is_authenticated:\n        request.user.auth_token.delete()\n        logout(request)\n        return Response(status=status.HTTP_200_OK)\n    else:\n        return Response({'detail': 'User not authenticated'}, status=status.HTTP_401_UNAUTHORIZED)",
         "detail": "account.views",
         "documentation": {}
     },

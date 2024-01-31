@@ -4,6 +4,7 @@ from account.models import Profile
 from account.serializers import ProfileSerializer
 from . import serializers
 from rest_framework.views import APIView
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -95,9 +96,19 @@ class UserLoginApiView(APIView):
                 return Response({'error' : "Invalid Credential"})
         return Response(serializer.errors)
 
-class UserLogoutView(APIView):
-    def get(self, request):
+
+# log out class
+# class UserLogoutView(APIView):
+#     def get(self, request):
+#         request.user.auth_token.delete()
+#         logout(request)
+#         return redirect('login')
+
+@api_view(['GET'])
+def user_logout_view(request):
+    if request.user.is_authenticated:
         request.user.auth_token.delete()
         logout(request)
-        return redirect('login')
-        
+        return Response(status=status.HTTP_200_OK)
+    else:
+        return Response({'detail': 'User not authenticated'}, status=status.HTTP_401_UNAUTHORIZED)
