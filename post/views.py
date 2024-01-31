@@ -6,7 +6,9 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
-
+#post create korar jonno view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 
 # class AllPostAPIViewsets(viewsets.ModelViewSet):
 #     queryset = Post.objects.all()
@@ -25,9 +27,7 @@ class AllPostAPIViewsets(viewsets.ModelViewSet):
 
 
 
-#post create korar jonno view
-from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import IsAuthenticated
+
 
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])  # Requires authentication for both GET and POST requests
