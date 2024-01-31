@@ -8,9 +8,20 @@ from rest_framework import status
 from django.shortcuts import get_object_or_404
 
 
+# class AllPostAPIViewsets(viewsets.ModelViewSet):
+#     queryset = Post.objects.all()
+#     serializer_class = PostSerializer
+
+
 class AllPostAPIViewsets(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    permission_classes = [IsAuthenticated]
+
+    def perform_create(self, serializer):
+        # Set the user before saving the post
+        serializer.save(user=self.request.user)
+
 
 
 
