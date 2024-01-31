@@ -1270,7 +1270,7 @@
         "kind": 6,
         "importPath": "post.views",
         "description": "post.views",
-        "peekOfCode": "class AllPostAPIViewsets(viewsets.ModelViewSet):\n    queryset = Post.objects.all()\n    serializer_class = PostSerializer\n    permission_classes = [IsAuthenticated]\n    def perform_create(self, serializer):\n        # Set the user before saving the post\n        serializer.save(user=self.request.user)\n#post create korar jonno view\n# views.py\nfrom rest_framework.decorators import api_view, permission_classes",
+        "peekOfCode": "class AllPostAPIViewsets(viewsets.ModelViewSet):\n    queryset = Post.objects.all()\n    serializer_class = PostSerializer\n    permission_classes = [IsAuthenticated]\n    def perform_create(self, serializer):\n        # Set the user before saving the post\n        serializer.save(user=self.request.user)\n#post create korar jonno view\nfrom rest_framework.decorators import api_view, permission_classes\nfrom rest_framework.permissions import IsAuthenticated",
         "detail": "post.views",
         "documentation": {}
     },

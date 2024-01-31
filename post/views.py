@@ -26,7 +26,6 @@ class AllPostAPIViewsets(viewsets.ModelViewSet):
 
 
 #post create korar jonno view
-# views.py
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 
