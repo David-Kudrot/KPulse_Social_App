@@ -10,19 +10,20 @@ from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 
-# class AllPostAPIViewsets(viewsets.ModelViewSet):
-#     queryset = Post.objects.all()
-#     serializer_class = PostSerializer
-
-
 class AllPostAPIViewsets(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    permission_classes = [IsAuthenticated]
 
-    def perform_create(self, serializer):
-        # Set the user before saving the post
-        serializer.save(user=self.request.user)
+
+# # eta die backend a post kora jasse but front end a login hooose na tai post kora jasee na
+# class AllPostAPIViewsets(viewsets.ModelViewSet):
+#     queryset = Post.objects.all()
+#     serializer_class = PostSerializer
+#     permission_classes = [IsAuthenticated]
+
+#     def perform_create(self, serializer):
+#         # Set the user before saving the post
+#         serializer.save(user=self.request.user)
 
 
 
