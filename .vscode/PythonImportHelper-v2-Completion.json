@@ -1268,7 +1268,7 @@
         "kind": 5,
         "importPath": "post.urls",
         "description": "post.urls",
-        "peekOfCode": "router = DefaultRouter()\nrouter.register('list', AllPostAPIViewsets)\nurlpatterns = [\n    # Posts\n    path('', include(router.urls)),\n    path('lists/', PostListCreateAPIView.as_view(), name='post-list-create'),\n    path('<int:pk>/', PostDetailAPIView.as_view(), name='post-detail'),\n    path('makepost', post_list_create_api_view, name='makepost'),\n    # Comments\n    path('comments/', CommentListCreateAPIView.as_view(), name='comment-list-create'),",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register('list', AllPostAPIViewsets)\nurlpatterns = [\n    # Posts\n    path('', include(router.urls)),\n    path('lists/', PostListCreateAPIView.as_view(), name='post-list-create'),\n    path('<int:pk>/', PostDetailAPIView.as_view(), name='post-detail'),\n    path('makepost/', post_list_create_api_view, name='makepost'),\n    # Comments\n    path('comments/', CommentListCreateAPIView.as_view(), name='comment-list-create'),",
         "detail": "post.urls",
         "documentation": {}
     },
@@ -1277,7 +1277,7 @@
         "kind": 5,
         "importPath": "post.urls",
         "description": "post.urls",
-        "peekOfCode": "urlpatterns = [\n    # Posts\n    path('', include(router.urls)),\n    path('lists/', PostListCreateAPIView.as_view(), name='post-list-create'),\n    path('<int:pk>/', PostDetailAPIView.as_view(), name='post-detail'),\n    path('makepost', post_list_create_api_view, name='makepost'),\n    # Comments\n    path('comments/', CommentListCreateAPIView.as_view(), name='comment-list-create'),\n    # Likes\n    path('likes/', LikeListCreateAPIView.as_view(), name='like-list-create'),",
+        "peekOfCode": "urlpatterns = [\n    # Posts\n    path('', include(router.urls)),\n    path('lists/', PostListCreateAPIView.as_view(), name='post-list-create'),\n    path('<int:pk>/', PostDetailAPIView.as_view(), name='post-detail'),\n    path('makepost/', post_list_create_api_view, name='makepost'),\n    # Comments\n    path('comments/', CommentListCreateAPIView.as_view(), name='comment-list-create'),\n    # Likes\n    path('likes/', LikeListCreateAPIView.as_view(), name='like-list-create'),",
         "detail": "post.urls",
         "documentation": {}
     },
