@@ -353,6 +353,14 @@
         "documentation": {}
     },
     {
+        "label": "status",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
         "label": "Profile",
         "importPath": "account.models",
         "description": "account.models",
@@ -505,11 +513,27 @@
         "documentation": {}
     },
     {
+        "label": "APIView",
+        "importPath": "rest_framework.views",
+        "description": "rest_framework.views",
+        "isExtraImport": true,
+        "detail": "rest_framework.views",
+        "documentation": {}
+    },
+    {
         "label": "api_view",
         "importPath": "rest_framework.decorators",
         "description": "rest_framework.decorators",
         "isExtraImport": true,
         "detail": "rest_framework.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
         "documentation": {}
     },
     {
@@ -1222,7 +1246,7 @@
         "kind": 6,
         "importPath": "post.views",
         "description": "post.views",
-        "peekOfCode": "class AllPostAPIViewsets(viewsets.ModelViewSet):\n    queryset = Post.objects.all()\n    serializer_class = PostSerializer\nclass PostListCreateAPIView(generics.ListCreateAPIView):\n    serializer_class = PostSerializer\n    # permission_classes = [permissions.IsAuthenticated]\n    def get_queryset(self):\n        user = self.request.user\n        own_posts = Post.objects.filter(user=user)\n        shared_posts = Post.objects.filter(shared_post__user=user)",
+        "peekOfCode": "class AllPostAPIViewsets(viewsets.ModelViewSet):\n    queryset = Post.objects.all()\n    serializer_class = PostSerializer\nclass PostListCreateAPIView(APIView):\n    permission_classes = [permissions.IsAuthenticated]\n    def get(self, request, *args, **kwargs):\n        user = self.request.user\n        own_posts = Post.objects.filter(user=user)\n        shared_posts = Post.objects.filter(shared_post__user=user)\n        # Combine own posts and shared posts",
         "detail": "post.views",
         "documentation": {}
     },
@@ -1231,7 +1255,7 @@
         "kind": 6,
         "importPath": "post.views",
         "description": "post.views",
-        "peekOfCode": "class PostListCreateAPIView(generics.ListCreateAPIView):\n    serializer_class = PostSerializer\n    # permission_classes = [permissions.IsAuthenticated]\n    def get_queryset(self):\n        user = self.request.user\n        own_posts = Post.objects.filter(user=user)\n        shared_posts = Post.objects.filter(shared_post__user=user)\n        # Combine own posts and shared posts\n        queryset = own_posts.union(shared_posts)\n        return queryset",
+        "peekOfCode": "class PostListCreateAPIView(APIView):\n    permission_classes = [permissions.IsAuthenticated]\n    def get(self, request, *args, **kwargs):\n        user = self.request.user\n        own_posts = Post.objects.filter(user=user)\n        shared_posts = Post.objects.filter(shared_post__user=user)\n        # Combine own posts and shared posts\n        queryset = own_posts.union(shared_posts)\n        serializer = PostSerializer(queryset, many=True)\n        return Response(serializer.data)",
         "detail": "post.views",
         "documentation": {}
     },

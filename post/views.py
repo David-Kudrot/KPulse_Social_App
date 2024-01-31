@@ -2,6 +2,9 @@ from rest_framework import generics, viewsets, permissions
 from .models import Post, Comment, Share, Like
 from .serializers import PostSerializer, CommentSerializer, LikeSerializer, ShareSerializer
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
 from django.shortcuts import get_object_or_404
 
 
@@ -10,11 +13,11 @@ class AllPostAPIViewsets(viewsets.ModelViewSet):
     serializer_class = PostSerializer
 
 
-class PostListCreateAPIView(generics.ListCreateAPIView):
-    serializer_class = PostSerializer
-    # permission_classes = [permissions.IsAuthenticated]
 
-    def get_queryset(self):
+class PostListCreateAPIView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
         user = self.request.user
         own_posts = Post.objects.filter(user=user)
         shared_posts = Post.objects.filter(shared_post__user=user)
@@ -22,10 +25,34 @@ class PostListCreateAPIView(generics.ListCreateAPIView):
         # Combine own posts and shared posts
         queryset = own_posts.union(shared_posts)
 
-        return queryset
+        serializer = PostSerializer(queryset, many=True)
+        return Response(serializer.data)
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+    def post(self, request, *args, **kwargs):
+        serializer = PostSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(user=self.request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# class PostListCreateAPIView(generics.ListCreateAPIView):
+#     serializer_class = PostSerializer
+#     permission_classes = [permissions.IsAuthenticated]
+
+#     def get_queryset(self):
+#         user = self.request.user
+#         own_posts = Post.objects.filter(user=user)
+#         shared_posts = Post.objects.filter(shared_post__user=user)
+
+#         # Combine own posts and shared posts
+#         queryset = own_posts.union(shared_posts)
+
+#         return queryset
+
+#     def perform_create(self, serializer):
+#         serializer.save(user=self.request.user)
+
+
 
 class PostDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
