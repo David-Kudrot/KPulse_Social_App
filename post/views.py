@@ -20,24 +20,24 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 
 @api_view(['GET', 'POST'])
-@permission_classes([IsAuthenticated]) # eta authentication er jonnno
+@permission_classes([IsAuthenticated])  # Requires authentication for both GET and POST requests
 def post_list_create_api_view(request):
     if request.method == 'GET':
-        user = request.user
-        own_posts = Post.objects.filter(user=user)
-        shared_posts = Post.objects.filter(shared_post__user=user)
-        queryset = own_posts.union(shared_posts)
-        serializer = PostSerializer(queryset, many=True)
-        return Response(serializer.data)
+        # Render the HTML form for creating a new post on the front end
+        return Response({'detail': 'Render your HTML form for creating a new post on the front end'})
 
     elif request.method == 'POST':
-        serializer = PostSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save(user=request.user)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
+        # Check if the user is authenticated (logged in)
+        if request.user.is_authenticated:
+            serializer = PostSerializer(data=request.data)
+            if serializer.is_valid():
+                # Save the post with the authenticated user
+                serializer.save(user=request.user)
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            # If the user is not authenticated, return a 401 Unauthorized response
+            return Response({'detail': 'Authentication credentials were not provided.'}, status=status.HTTP_401_UNAUTHORIZED)
 
 
 
