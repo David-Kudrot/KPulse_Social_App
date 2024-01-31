@@ -15,7 +15,7 @@ class AllPostAPIViewsets(viewsets.ModelViewSet):
 
 
 class PostListCreateAPIView(APIView):
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
         user = self.request.user

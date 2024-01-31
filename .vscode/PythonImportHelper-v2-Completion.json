@@ -1246,7 +1246,7 @@
         "kind": 6,
         "importPath": "post.views",
         "description": "post.views",
-        "peekOfCode": "class AllPostAPIViewsets(viewsets.ModelViewSet):\n    queryset = Post.objects.all()\n    serializer_class = PostSerializer\nclass PostListCreateAPIView(APIView):\n    permission_classes = [permissions.IsAuthenticated]\n    def get(self, request, *args, **kwargs):\n        user = self.request.user\n        own_posts = Post.objects.filter(user=user)\n        shared_posts = Post.objects.filter(shared_post__user=user)\n        # Combine own posts and shared posts",
+        "peekOfCode": "class AllPostAPIViewsets(viewsets.ModelViewSet):\n    queryset = Post.objects.all()\n    serializer_class = PostSerializer\nclass PostListCreateAPIView(APIView):\n    # permission_classes = [permissions.IsAuthenticated]\n    def get(self, request, *args, **kwargs):\n        user = self.request.user\n        own_posts = Post.objects.filter(user=user)\n        shared_posts = Post.objects.filter(shared_post__user=user)\n        # Combine own posts and shared posts",
         "detail": "post.views",
         "documentation": {}
     },
@@ -1255,7 +1255,7 @@
         "kind": 6,
         "importPath": "post.views",
         "description": "post.views",
-        "peekOfCode": "class PostListCreateAPIView(APIView):\n    permission_classes = [permissions.IsAuthenticated]\n    def get(self, request, *args, **kwargs):\n        user = self.request.user\n        own_posts = Post.objects.filter(user=user)\n        shared_posts = Post.objects.filter(shared_post__user=user)\n        # Combine own posts and shared posts\n        queryset = own_posts.union(shared_posts)\n        serializer = PostSerializer(queryset, many=True)\n        return Response(serializer.data)",
+        "peekOfCode": "class PostListCreateAPIView(APIView):\n    # permission_classes = [permissions.IsAuthenticated]\n    def get(self, request, *args, **kwargs):\n        user = self.request.user\n        own_posts = Post.objects.filter(user=user)\n        shared_posts = Post.objects.filter(shared_post__user=user)\n        # Combine own posts and shared posts\n        queryset = own_posts.union(shared_posts)\n        serializer = PostSerializer(queryset, many=True)\n        return Response(serializer.data)",
         "detail": "post.views",
         "documentation": {}
     },
