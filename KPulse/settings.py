@@ -100,6 +100,12 @@ WSGI_APPLICATION = 'KPulse.wsgi.application'
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    
+    # eta token er jonno use korlam, mane front end theke post creat korte Bearer ba Token er die kora jai but ami eta use korlam jate Token use kora jai
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        # Other authentication classes...
+    ],
    
     # 'DEFAULT_PERMISSION_CLASSES': [
     #     'rest_framework.permissions.IsAuthenticatedOrReadOnly',
