@@ -16,14 +16,14 @@ class AllPostAPIViewsets(viewsets.ModelViewSet):
 
 
 # # eta die backend a post kora jasse but front end a login hooose na tai post kora jasee na
-# class AllPostAPIViewsets(viewsets.ModelViewSet):
-#     queryset = Post.objects.all()
-#     serializer_class = PostSerializer
-#     permission_classes = [IsAuthenticated]
+class MakePost(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    permission_classes = [IsAuthenticated]
 
-#     def perform_create(self, serializer):
-#         # Set the user before saving the post
-#         serializer.save(user=self.request.user)
+    def perform_create(self, serializer):
+        # Set the user before saving the post
+        serializer.save(user=self.request.user)
 
 
 

@@ -1,12 +1,13 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import (
-    PostListCreateAPIView, PostDetailAPIView, CommentListCreateAPIView, LikeListCreateAPIView, ShareListCreateAPIView, AllPostAPIViewsets, post_list_create_api_view
+    PostListCreateAPIView, PostDetailAPIView, CommentListCreateAPIView, LikeListCreateAPIView, ShareListCreateAPIView, AllPostAPIViewsets, post_list_create_api_view, MakePost
 )
 
 
 router = DefaultRouter()
 router.register('list', AllPostAPIViewsets)
+router.register('create_post', MakePost)
 
 
 
